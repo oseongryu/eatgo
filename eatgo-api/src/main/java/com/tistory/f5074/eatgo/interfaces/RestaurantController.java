@@ -1,5 +1,7 @@
 package com.tistory.f5074.eatgo.interfaces;
 
+import com.tistory.f5074.eatgo.domain.MenuItem;
+import com.tistory.f5074.eatgo.domain.MenuItemRepository;
 import com.tistory.f5074.eatgo.domain.Restaurant;
 import com.tistory.f5074.eatgo.domain.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class RestaurantController {
     @Autowired
     private RestaurantRepository repository;
 
+    @Autowired
+    private MenuItemRepository menuItemRepository;
+
     @GetMapping("/restaurants")
     public List<Restaurant> list(){
         List<Restaurant> restaurants = repository.findAll();
@@ -23,9 +28,10 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/{id}")
     public Restaurant detail(@PathVariable("id") Long id){
-        List<Restaurant> restaurants = repository.findAll();
         Restaurant restaurant = repository.findById(id);
+        List<MenuItem> menuItems = menuItemRepository.findAllByRestaurantId(id);
+        restaurant.setMenuItems(menuItems);
+        restaurant.addMenuItem(new MenuItem("Kimchi"));
         return restaurant;
     }
-
 }
