@@ -1,5 +1,6 @@
 package com.tistory.f5074.eatgo.interfaces;
 
+import com.tistory.f5074.eatgo.application.RestaurantService;
 import com.tistory.f5074.eatgo.domain.MenuItemRepository;
 import com.tistory.f5074.eatgo.domain.MenuItemRepositoryImpl;
 import com.tistory.f5074.eatgo.domain.RestaurantRepository;
@@ -24,6 +25,9 @@ public class RestaurantControllerTest {
 
     @Autowired
     private MockMvc mvc;
+
+    @SpyBean(RestaurantService.class)
+    private RestaurantService restaurantService;
 
     @SpyBean(RestaurantRepositoryImpl.class)
     private RestaurantRepository restaurantRepository;
