@@ -1,19 +1,23 @@
 package com.tistory.f5074.eatgo.interfaces;
 
 import com.tistory.f5074.eatgo.application.RestaurantService;
-import com.tistory.f5074.eatgo.domain.MenuItemRepository;
-import com.tistory.f5074.eatgo.domain.MenuItemRepositoryImpl;
-import com.tistory.f5074.eatgo.domain.RestaurantRepository;
-import com.tistory.f5074.eatgo.domain.RestaurantRepositoryImpl;
+import com.tistory.f5074.eatgo.domain.*;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.Matchers.containsString;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -26,31 +30,52 @@ public class RestaurantControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @SpyBean(RestaurantService.class)
+    @MockBean
     private RestaurantService restaurantService;
 
-    @SpyBean(RestaurantRepositoryImpl.class)
+    @Mock
     private RestaurantRepository restaurantRepository;
 
-    @SpyBean(MenuItemRepositoryImpl.class)
+    @Mock
     private MenuItemRepository menuItemRepository;
+
+    @Before
+    public void setUp(){
+        restaurantService = new RestaurantService(restaurantRepository, menuItemRepository);
+    }
+
 
     @Test
     public void list() throws Exception{
+        List<Restaurant> restaurants = new ArrayList<>();
+        restaurants.add(new Restaurant(1004L, "Bob zip", "Seoul"));
+        given(restaurantService.getRestaurants()).willReturn((restaurants));
+
+
         mvc.perform(get("/restaurants"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("\"id\":1004")))
-                .andExpect(content().string(containsString("\"name\":\"Bob zip\"")))
-                .andExpect(content().string(containsString("Kimchi")));
+                .andExpect(content().string(containsString("\"name\":\"Bob zip\"")));
 
     }
 
     @Test
     public void detail() throws Exception {
-        mvc.perform(get("/restaurants/2020"))
+        Restaurant restaurant1 = new Restaurant(1004L, "Bob zip", "Seoul");
+        restaurant1.addMenuItem((new MenuItem("Kimchi")));
+
+
+        Restaurant restaurant2 = new Restaurant(2020L, "Cyber Food", "Seoul");
+        restaurant2.addMenuItem((new MenuItem("Kimchi")));
+
+        given(restaurantService.getRestaurant(1004L)).willReturn((restaurant1));
+        given(restaurantService.getRestaurant(2020L)).willReturn((restaurant2));
+
+        mvc.perform(get("/restaurants/1004"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("\"id\":2020")))
-                .andExpect(content().string(containsString("\"name\":\"Cyber Food\"")));
+                .andExpect(content().string(containsString("\"id\":1004")))
+                .andExpect(content().string(containsString("\"name\":\"Bob zip\"")));
+//                        .andExpect(content().string(containsString("Kimchi")));
     }
 
 }
