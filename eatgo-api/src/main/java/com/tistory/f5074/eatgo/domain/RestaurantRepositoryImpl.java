@@ -28,4 +28,10 @@ public class RestaurantRepositoryImpl implements RestaurantRepository {
                 .orElse(null);
         return restaurant;
     }
+
+    @Override
+    public Restaurant save(Restaurant restaurant) {
+        restaurants.add(restaurant);
+        return restaurant;
+    }
 }
