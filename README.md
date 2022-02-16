@@ -336,6 +336,27 @@ http POST localhost:8080/restaurants name=BeRyong address=Busan
 
 #### JPA
 
+Persistence
+
+Java Persistence API
+
+* Library
+Hibernate
+Spring Data JPA
+
+@Entity
+
+H2 Database In-memory 방식
+
+JUnit
+
+http GET localhost:8080/restaurants
+http POST localhost:8080/restaurants
+http POST localhost:8080/restaurants name=JOKER address=Seoul
+http POST localhost:8080/restaurants name=BeRyong address=Busan
+http POST localhost:8080/restaurants name=CyberFood address=Universe
+
+
 #### 프론트엔드
 
 #### 가게 수정
