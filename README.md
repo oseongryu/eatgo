@@ -1,9 +1,9 @@
 ## 2021년 2월 2일
 SpringBoot 실전 프로젝트
 
-### 제1차시
+### 1차시 Spring Boot 실전 프로젝트
 
-#### 1. 강의소개및 활용법
+#### 강의소개및 활용법
 
 "뭔가 잘못했겠지"
 
@@ -13,7 +13,7 @@ SpringBoot 실전 프로젝트
 급한일 VS 중요한일
 -> 사람은 기본적으로 급한 일 우선으로 처리하려고 한다. 급한일부터 처리하지말자 -> 무엇이 중요한가? 확인 후 처리하기
 
-#### 2. 무엇을 만들 것인가?
+#### 무엇을 만들 것인가?
 
 1. 무엇이 문제인가? -> 불편한점 -> 분야를 선택 (ex) 버스를 타고 다니면 불편함 = Domain -> 올바른문제 찾기 -> 대박
 
@@ -62,7 +62,7 @@ SpringBoot 실전 프로젝트
 
 * 어떤사람이 어떤가치를 얻을 수 있는지를 항상 생각하는 습관을 가지자
 
-### 3. 어떻게 만들 것인가?
+### 어떻게 만들 것인가?
 
 도메인 모델링
 Restaurant
@@ -102,7 +102,7 @@ Java
 Spring Boot
 REST API
 
-#### 4. Hello, World
+#### Hello, World
 
 Spring Initializr
 Demo
@@ -151,7 +151,7 @@ WelcomeController
 * test를 활용해야하는 이유
 
 
-#### 5. Test Driven Development
+#### Test Driven Development
 - 테스트 주도 개발  = 목표 주도 개발 = 사용자 중심 개발 = 인터페이스 중심 개발
   (목표를 달성했는지 테스트)
 
@@ -181,7 +181,7 @@ Go TO > Test
 
 
 
-#### 6. REST API
+#### REST API
 
 다양한 환경 지원
 
@@ -233,21 +233,21 @@ PATCH /restaurants/{id}
 DELETE /restaurants/{id}
 
 
-#### 7. 가게목록
+#### 가게목록
 실제 구현
 
-#### 8. 가게상세 -1
+#### 가게상세 -1
 실제 구현
 
 중복
 Respository
 
 
-#### 9. 가게상세 -2
+#### 가게상세 -2
 실제 구현
 
 
-#### 10. 의존성 주입
+#### 의존성 주입
 
 Dependency Injection
 
@@ -268,7 +268,7 @@ Spring IOC Container의 역할
 
 extract interface
 
-#### 11. 레이어 분리-1
+#### 레이어 분리-1
 
 Layered Architechture
 
@@ -289,11 +289,11 @@ Menu, Item을 추가
 실습
 
 
-#### 12. 레이어 분리-2
+#### 레이어 분리-2
 
 실습
 
-#### 13. 가짜객체
+#### 가짜객체
 
 Mock Object
 
@@ -305,7 +305,7 @@ POJO
 (Plain Old Java Object)
 
 
-#### 14. 가게 추가-1
+#### 가게 추가-1
 
 Header Location
 
@@ -322,17 +322,14 @@ http GET localhost:8080/restaurants
 
 Controller
 
-#### 15. 가게 추가-2
+#### 가게 추가-2
 
 http GET localhost:8080/restaurants
 http POST localhost:8080/restaurants
 http POST localhost:8080/restaurants name=JOKER address=Seoul
 http POST localhost:8080/restaurants name=BeRyong address=Busan
 
-
-
-
-### 3차시 Spring Boot 실전 프로젝트 03
+### 3차시 Spring Boot 실전 프로젝트
 
 #### JPA
 
@@ -356,7 +353,6 @@ http POST localhost:8080/restaurants name=JOKER address=Seoul
 http POST localhost:8080/restaurants name=BeRyong address=Busan
 http POST localhost:8080/restaurants name=CyberFood address=Universe
 
-
 #### 프론트엔드
 
 #### 가게 수정
@@ -369,7 +365,7 @@ http POST localhost:8080/restaurants name=CyberFood address=Universe
 
 #### 에러 처리
 
-### 4차시 Spring Boot 실전 프로젝트 04
+### 4차시 Spring Boot 실전 프로젝트
 
 #### 메뉴 관리 -1
 #### 메뉴 관리 -2
@@ -380,7 +376,7 @@ http POST localhost:8080/restaurants name=CyberFood address=Universe
 #### 리뷰 작성 -3
 
 
-### 5차시 Spring Boot 실전 프로젝트 05
+### 5차시 Spring Boot 실전 프로젝트
 #### 프로젝트 분리 -1
 #### 프로젝트 분리 -2
 #### 프로젝트 분리 -3
@@ -389,7 +385,7 @@ http POST localhost:8080/restaurants name=CyberFood address=Universe
 #### 진짜 영속화
 
 
-### 6차시 Spring Boot 실전 프로젝트 06
+### 6차시 Spring Boot 실전 프로젝트
 #### 가게 목록 필터링 -1
 #### 가게 목록 필터링 -2
 #### 가게 목록 필터링 -3
@@ -398,7 +394,41 @@ http POST localhost:8080/restaurants name=CyberFood address=Universe
 #### 가게 목록 필터링 -6
 
 
-### 7차시 Spring Boot 실전 프로젝트 07
+### 7차시 Spring Boot 실전 프로젝트
+#### 사용자 관리 -1
+#### 사용자 관리 -2
+#### 사용자 관리 -3
+#### 사용자 관리 -4
+#### 회원가입 -1
+#### 회원가입 -2
+#### 회원가입 -3
+
+### 8차시 Spring Boot 실전 프로젝트
+#### 인증 -1
+#### 인증 -2
+#### 인증 -3
+#### 인증 -4
+#### JWT -1
+#### JWT -2
+
+
+### 9차시 Spring Boot 실전 프로젝트
+#### 인가 -1
+#### 인가 -2
+#### 로그인 API 분리 -1
+#### 로그인 API 분리 -2
+#### 로그인 API 분리 -3
+
+
+### 10차시 Spring Boot 실전 프로젝트
+#### 테이블 예약 -1
+#### 테이블 예약 -2
+#### 테이블 예약 -3
+#### 한꺼번에 실행하기 -1
+#### 한꺼번에 실행하기 -2
+#### 회고
+
+
 
 
 
